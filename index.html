@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101522">
+<title>Football HQ</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101522;color:#fff;font-family:Arial,sans-serif}
+header{padding:24px 18px;background:#192338;border-bottom:2px solid #d7b65d}
+.logo{font-size:12px;letter-spacing:4px;color:#d7b65d}
+h1{margin:8px 0;font-size:30px}
+p{color:#b9c2d3;line-height:1.5}
+main{padding:18px;max-width:700px;margin:auto}
+.search{width:100%;padding:14px;border-radius:10px;border:1px solid #364158;background:#1a2335;color:white;font-size:16px}
+h2{font-size:19px;margin-top:25px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:#1b263a;border:1px solid #344158;border-radius:14px;padding:16px;min-height:100px}
+.card strong{display:block;margin-bottom:8px}
+.card span{font-size:13px;color:#bac5d8}
+button{cursor:pointer}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.actions button{background:#293650;color:white;border:1px solid #46536d;border-radius:20px;padding:10px 13px}
+.actions button.active{background:#d7b65d;color:#111}
+#result{margin-top:14px;color:#e7cf86;line-height:1.6}
+footer{text-align:center;padding:24px;color:#7f8ba2;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">YOUR PERSONAL FOOTBALL UNIVERSE</div>
+<h1>⚽ FOOTBALL HQ</h1>
+<p>Every match. Every player. Every story.</p>
+</header>
+<main>
+<input id="search" class="search" placeholder="Search a club or player..." oninput="searchItems()">
+<div id="result">Welcome, boss! Your football journey starts here.</div>
+<h2>⭐ My Football World</h2>
+<div class="grid">
+<div class="card"><strong>🤍 Real Madrid</strong><span>Your favourite club</span></div>
+<div class="card"><strong>🐐 Cristiano Ronaldo</strong><span>Player profile & career</span></div>
+<div class="card"><strong>📅 Fixtures</strong><span>Upcoming matches</span></div>
+<div class="card"><strong>🔴 Live Scores</strong><span>Match centre</span></div>
+<div class="card"><strong>🏆 Competitions</strong><span>Leagues & trophies</span></div>
+<div class="card"><strong>📊 Statistics</strong><span>Goals, assists & records</span></div>
+</div>
+<h2>🌍 Explore Football</h2>
+<div class="actions">
+<button onclick="showLeague('La Liga')">La Liga</button>
+<button onclick="showLeague('Premier League')">Premier League</button>
+<button onclick="showLeague('Champions League')">Champions League</button>
+<button onclick="showLeague('World Cup')">World Cup</button>
+</div>
+<h2>📌 Next Step</h2>
+<p>This is your first app screen. We will add football data, player career records and match schedules in the next steps.</p>
+</main>
+<footer>FOOTBALL HQ • MADE FOR A FOOTBALL FAN</footer>
+<script>
+function searchItems(){
+const q=document.getElementById('search').value.trim().toLowerCase();
+const items=['Real Madrid','Cristiano Ronaldo','Lionel Messi','Barcelona','La Liga','Premier League','Champions League','World Cup'];
+const found=items.filter(x=>x.toLowerCase().includes(q));
+document.getElementById('result').textContent=q?(found.length?'Found: '+found.join(', '):'No match in the starter list. More data will be added soon.'):'Welcome, boss! Your football journey starts here.';
+}
+function showLeague(name){
+document.getElementById('result').textContent=name+' selected. Live fixtures and standings will be connected in a later step.';
+window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
